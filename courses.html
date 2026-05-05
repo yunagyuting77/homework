@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課程簡介 - 跑跑特訓營</title>
+    <link rel="stylesheet" href="style.css">
+
+<style>
+        .btn {
+            border: solid 1px;
+            border-color: black;
+            background-color: white;
+            padding: 10px 20px;
+        }
+    </style>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        function fnOff() {
+            $(".btn").css("border-color", "white");
+            $(".btn").css("color", "white");
+            $(".btn").css("background-color", "black");
+            $("body").css("background-color", "black");
+        }
+        function fnOn() {
+            $(".btn").css("border-color", "black");
+            $(".btn").css("color", "black");
+            $(".btn").css("background-color", "white");
+            $("body").css("background-color", "white");
+        }
+        function fnHighlight(num) {
+            if (num == 0) {
+                // Q1: 將按鈕的文字顏色改為紅色
+                $(".btn").css("color", "red");
+            }
+            else {
+                // Q2: 使用「物件寫法」，同時修改背景顏色為黃色、字體大小為 30px
+                $(".btn").css({
+                    "background-color": "yellow",
+                    "font-size": "30px"
+                });
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+
+</head>
+<body>
+    <nav><div class="container"><a href="index.html" class="logo">跑跑特訓營</a>
+<ul>
+    <li><a href="index.html">回到首頁</a></li>
+    <li><a href="about.html">教練資歷</a></li>
+    <li><a href="courses.html" class="active">課程簡介</a></li>
+    <li><a href="tools.html">配速工具</a></li>
+    <li><a href="testimonials.html">學員見證</a></li>
+</ul>
+    </div></nav>
+    <section class="container">
+        <h2>12 週 PB 挑戰班</h2>
+        <p>針對想在 10K 突破 50 分鐘的學員設計。</p>
+        <table>
+            <thead><tr><th>階段</th><th>訓練重點</th></tr></thead>
+            <tbody>
+                <tr><td>第 1 ～ 4 週</td><td>基礎期：建立有氧基礎與跑姿調整</td></tr>
+                <tr><td>第 5 ～ 8 週</td><td>強化期：間歇跑與乳酸閾值訓練</td></tr>
+                <tr><td>第 9 ～ 12 週</td><td>巔峰期：模擬比賽與減量調整</td></tr>
+            </tbody>
+        </table>
+        <div style="text-align:center;"><a href="form.html" class="btn">立即報名課程</a></div>
+    </section>
+
+
+<input type="button" value="關燈" class="btn" onclick="fnOff();">
+    <input type="button" value="開燈" class="btn" onclick="fnOn();">
+    <input type="button" value="改色" class="btn" onclick="fnHighlight(0);">
+    <input type="button" value="改色" class="btn" onclick="fnHighlight(1);">
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+
+
+
+</body>
+</html>

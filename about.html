@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教練資歷 - 跑班訓練營</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        var index = 0;
+        var img = new Array("Fengjia.jpg", "Yizhong.jpg", "Tunghai.jpg");
+        var title = new Array("安室透教練", "赤井教練", "柯南教練");
+        var info = new Array("全能魔鬼訓練流：一邊做三明治、一邊處理公安情報，同時精準計時你的衝刺。", "長距離狙擊流：不陪跑，在700碼外透過狙擊鏡盯著你的姿勢。", "數據狂魔流：精準分析你的心率、步頻、落地角度與VO2 Max。");
+
+        function toHTML(index) {
+            var hm = "<img src='images/" + img[index] + "' width='125' style='float:left;margin:10px;'>";
+            hm += "<h3>" + title[index] + "</h3>";
+            hm += "<p>" + info[index] + "</p>";
+            return hm;
+        }
+        $(document).ready(function () {
+            $("#div_cont").html(toHTML(index));
+        });
+
+        function fnNext() {
+
+            index++;
+            if (index >= img.length) {
+                index = 0;
+            }
+
+            $("#div_cont").html(toHTML(index));
+            console.log('$("#div_cont").html() : ' + $("#div_cont").html());
+            console.log('$("#div_cont").text() : ' + $("#div_cont").text());
+        }
+    </script>
+</head>
+
+
+<body>
+    <nav>
+        <div class="container"><a href="index.html" class="logo">跑跑特訓營</a>
+            <ul>
+                <li><a href="index.html">回到首頁</a></li>
+                <li><a href="about.html" class="active">教練資歷</a></li>
+                <li><a href="courses.html">課程簡介</a></li>
+                <li><a href="tools.html">配速工具</a></li>
+                <li><a href="testimonials.html">學員見證</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="container">
+        <h2>教練資歷 & PB</h2>
+        <div class="row">
+            <div class="col">
+                <h3 style="color:rgb(19, 102, 2)">個人最佳成績 (PB)</h3>
+                <ul style="list-style:none; padding:10px 0;">
+                    <li>🏃 10K：48:30</li>
+                    <li>🏃 半馬：01:45:00</li>
+                    <li>🏃 全馬：03:50:00</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3 style="color:rgb(19, 102, 2)">專業證照</h3>
+                <p>✅ 世界田徑總會教練認證</p>
+                <p>✅ 紅十字會急救員證照</p>
+            </div>
+
+
+        </div>
+<div id="div_cont" style="border-style:solid; border-width:1px; min-height:150px; padding:10px;">
+    </div>
+<p>
+        <input type="button" onclick="fnNext();" value="下一位">
+    </p>
+
+    </section>
+
+
+
+
+
+</body>
+
+</html>

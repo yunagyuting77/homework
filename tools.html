@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配速工具 - 跑跑特訓營</title>
+    <link rel="stylesheet" href="style.css">
+
+
+ <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+$(document).ready(function () {
+    // Q1: 當點擊 id 為 btnOk 的按鈕時觸發事件
+    $("#btnOk").click(function () {                
+        
+        // Q2: 使用 val() 抓取第一個數字
+        var a = parseInt($("#txtA").val());
+        
+        // Q3: 使用 val() 抓取第二個數字
+        var b = parseInt($("#txtB").val());                
+        
+        // Q4: 使用 val() 抓取下拉選單目前的運算符號
+        var op = $("#selOp").val();
+        
+        // 將運算結果顯示在 span 標籤中
+        $("span").text(getCompute(a, b, op));
+    }) 
+
+    // 運算邏輯函式
+    function getCompute(a, b, op) {
+        if (op == "+") { return a + b; } 
+        else if (op == "-") { return a - b; } 
+        else if (op == "*") { return a * b; } 
+        else if (op == "/") { return a / b; }
+    }
+});
+    </script>
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    <nav><div class="container"><a href="index.html" class="logo">跑跑特訓營</a>
+<ul>
+    <li><a href="index.html">回到首頁</a></li>
+    <li><a href="about.html">教練資歷</a></li>
+    <li><a href="courses.html">課程簡介</a></li>
+    <li><a href="tools.html" class="active">配速工具</a></li>
+    <li><a href="testimonials.html">學員見證</a></li>
+</ul>
+    </div></nav>
+    <section class="container">
+        <h2>10K 配速轉換表</h2>
+        <p>依據目標時間規劃您的每公里配速：</p>
+        <table>
+            <thead><tr><th>目標時間</th><th>每公里配速</th></tr></thead>
+            <tbody>
+                <tr><td>45:00</td><td>4'30"</td></tr>
+                <tr><td>48:20</td><td>4'50"</td></tr>
+                <tr><td>50:00</td><td>5'00"</td></tr>
+                                <tr><td>45:00</td><td>4'30"</td></tr>
+                <tr><td>48:20</td><td>4'50"</td></tr>
+                <tr><td>50:00</td><td>5'00"</td></tr>
+                                <tr><td>45:00</td><td>4'30"</td></tr>
+                <tr><td>48:20</td><td>4'50"</td></tr>
+                <tr><td>50:00</td><td>5'00"</td></tr>
+                                <tr><td>45:00</td><td>4'30"</td></tr>
+                <tr><td>48:20</td><td>4'50"</td></tr>
+                <tr><td>50:00</td><td>5'00"</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+
+<p>計算屬於你的速度</p>
+    <p>
+        <input type="number" id="txtA" min="" value="" />
+        <select id="selOp">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="number" id="txtB" min="" value="" />=<span>?</span>
+    </p>
+    <p><input type="button" value="OK" id="btnOk" /></p>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

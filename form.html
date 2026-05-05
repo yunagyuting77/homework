@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課程簡介 - 跑跑特訓營</title>
+    <link rel="stylesheet" href="style.css">
+
+
+ <style>
+        .header {
+            height: 100px;
+            width: 100%;
+            background-color: black;
+        }
+
+        .option {
+            float: left;
+            width: 150px;
+            border: 1px solid white;
+            text-align: center;
+            margin-top: 5px;
+            margin-left: 10px;
+            color: white;
+        }
+
+        .option-cont {
+            list-style-type: none;
+            padding: 0;
+            display: none;
+        }
+
+        .option-cont li {
+            background-color: white;
+            color: black;
+            border: 1px solid #808080;
+            padding: 10px;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // 網頁載入完成時執行
+        $(document).ready(function () {
+            //將#sel元素綁定mouseenter和mouseleave事件
+            //mouseenter和mouseleave事件被觸發時會執行fnToggleClass函式
+            //滑鼠碰到#sel顯示#about關於我們選單
+            //滑鼠離開#sel隱藏#about關於我們選單
+            // Q1: 將 ID 為 sel 的元素綁定多個事件
+            $("#sel").on({
+                // Q2: 填入滑鼠「移入」與「移出」的事件名稱
+                "mouseenter": fnToggleClass,
+                "mouseleave": fnToggleClass
+            });
+        });
+
+        function fnToggleClass() {
+            //切換顯示#about，即關於我們的選單
+            // Q3: 切換 ID 為 about 元素的 "active" 類別，達成顯示/隱藏效果
+            $("#about").toggleClass("active");
+        }
+    </script>
+
+
+
+
+
+
+</head>
+<body>
+    <nav><div class="container"><a href="index.html" class="logo">跑跑特訓營</a>
+<ul>
+    <li><a href="index.html">回到首頁</a></li>
+    <li><a href="about.html">教練資歷</a></li>
+    <li><a href="courses.html" class="active">課程簡介</a></li>
+    <li><a href="tools.html">配速工具</a></li>
+    <li><a href="testimonials.html">學員見證</a></li>
+</ul>
+    </div></nav>
+   
+ <form>
+        <fieldset>
+            <legend>個人資料</legend>
+            姓名：<input type="text" name="txtName"><br>
+            生日：<input type="text" name="txtName"><br>
+            住址：<input type="text" name="txtName"><br>
+            電話：<input type="text" name="txtName"><br>
+            信箱：<input type="email" name="txtMail"><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>距離</legend>
+            <input type="checkbox" name="chk" value="5公里">5公里 <br>
+            <input type="checkbox" name="chk" value="10公里">10公里 <br>
+            <input type="checkbox" name="chk" value="半馬">半馬 <br>
+            <input type="checkbox" name="chk" value="全馬">全馬 <br>
+            <input type="checkbox" name="chk" value="玩票">玩票 <br><br>
+            
+        </fieldset>
+        <p>
+          <input type="submit" value="送出" >
+          <input type="reset" value="重設" >
+        </p>
+    </form>
+
+ <div class="header">
+        <div class="option">
+            <p>雙腳不停，生命不老</p>
+        </div>
+        <div id="sel" class="option">
+            <p>跑步－給自己最好的禮物</p>
+            <ul id="about" class="option-cont">
+                <li>每一步都是健康的投資</li>
+                <li>跑出活力人生</li>
+                <li>歡迎報名 ^ ^</li>
+            </ul>
+        </div>
+    </div>
+
+
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+    
+
+</body>
+</html>
